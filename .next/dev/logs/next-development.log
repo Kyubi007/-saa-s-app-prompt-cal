@@ -1,0 +1,17 @@
+[00:00:03.907] Server  LOG     
+[00:00:03.908] Server  LOG        We detected TypeScript in your project and reconfigured your tsconfig.json file for you.
+[00:00:03.910] Server  LOG        The following suggested values were added to your tsconfig.json. These values can be changed to fit your project's needs:
+
+[00:00:03.918] Server  LOG        	- include was updated to add '.next/dev/types/**/*.ts'
+[00:00:03.918] Server  LOG     
+[00:00:03.918] Server  LOG        The following mandatory changes were made to your tsconfig.json:
+
+[00:00:03.919] Server  LOG        	- jsx was set to react-jsx (next.js uses the React automatic runtime)
+[00:00:03.923] Server  LOG     
+[00:00:03.950] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:04.231] Server  LOG      ✓ Ready in 4s
+[00:00:04.374] Server  ERROR    ⨯ Error: Invalid supabaseUrl: Must be a valid HTTP or HTTPS URL.
+[00:00:06.383] Browser ERROR   uncaughtError: Error: Invalid supabaseUrl: Must be a valid HTTP or HTTPS URL.
+[00:00:08.457] Server  LOG      ○ Compiling /_not-found/page ...
+[09:47:06.089] Server  ERROR    ⨯ Error: Invalid supabaseUrl: Must be a valid HTTP or HTTPS URL.
+[09:47:07.509] Browser ERROR   uncaughtError: Error: Invalid supabaseUrl: Must be a valid HTTP or HTTPS URL.
