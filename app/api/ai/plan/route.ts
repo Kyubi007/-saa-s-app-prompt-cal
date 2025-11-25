@@ -107,6 +107,8 @@ Antworte NUR mit den strukturierten Kalenderdaten im angeforderten Format.`
       color: event.color,
       original_prompt: prompt,
       type: "create" as const,
+      confidence: 1,
+      raw_action: {},
     }))
 
     const { data: insertedDrafts, error: insertError } = await supabase.from("event_drafts").insert(drafts).select()

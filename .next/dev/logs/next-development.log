@@ -1,17 +1,64 @@
-[00:00:03.907] Server  LOG     
-[00:00:03.908] Server  LOG        We detected TypeScript in your project and reconfigured your tsconfig.json file for you.
-[00:00:03.910] Server  LOG        The following suggested values were added to your tsconfig.json. These values can be changed to fit your project's needs:
+[00:00:01.006] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:01.105] Server  LOG      ✓ Ready in 842ms
+[00:00:06.497] Server  LOG      ○ Compiling /app ...
+[00:00:08.733] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:10.118] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
 
-[00:00:03.918] Server  LOG        	- include was updated to add '.next/dev/types/**/*.ts'
-[00:00:03.918] Server  LOG     
-[00:00:03.918] Server  LOG        The following mandatory changes were made to your tsconfig.json:
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
 
-[00:00:03.919] Server  LOG        	- jsx was set to react-jsx (next.js uses the React automatic runtime)
-[00:00:03.923] Server  LOG     
-[00:00:03.950] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:04.231] Server  LOG      ✓ Ready in 4s
-[00:00:04.374] Server  ERROR    ⨯ Error: Invalid supabaseUrl: Must be a valid HTTP or HTTPS URL.
-[00:00:06.383] Browser ERROR   uncaughtError: Error: Invalid supabaseUrl: Must be a valid HTTP or HTTPS URL.
-[00:00:08.457] Server  LOG      ○ Compiling /_not-found/page ...
-[09:47:06.089] Server  ERROR    ⨯ Error: Invalid supabaseUrl: Must be a valid HTTP or HTTPS URL.
-[09:47:07.509] Browser ERROR   uncaughtError: Error: Invalid supabaseUrl: Must be a valid HTTP or HTTPS URL.
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/login/che..." notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="de" suppressHydrationWarning={true}>
+                          <body
+                            className="font-sans antialiased"
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+
+[00:00:10.119] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:10.119] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/login/check-email","route":"/login/check-email"}
+[00:00:10.119] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/login/check-email color: rgb(120, 120, 120) color: inherit {"dp":"/login/check-email","o":"http://localhost:3000/login/check-email","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764064300373}
+[00:00:10.263] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:11.374] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:11.375] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app","route":"/app"}
+[00:00:11.375] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app color: rgb(120, 120, 120) color: inherit {"dp":"/app","o":"http://localhost:3000/app","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764064302139}
+[00:00:16.517] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:16.941] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:16.942] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:00:16.942] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764064307999}
+[00:00:25.421] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app color: rgb(120, 120, 120) color: inherit {"dp":"/app","o":"http://localhost:3000/app","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764064316594}
+[00:03:37.409] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:03:37.409] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:03:43.151] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:03:43.152] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:03:47.066] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:03:47.066] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:03:48.866] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:03:48.867] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:03:50.700] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:03:50.700] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:03:52.683] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:03:52.683] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.

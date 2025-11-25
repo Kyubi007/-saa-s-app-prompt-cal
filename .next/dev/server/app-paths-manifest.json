@@ -1,3 +1,10 @@
 {
-  "/_not-found/page": "app/_not-found/page.js"
+  "/api/ai/plan/route": "app/api/ai/plan/route.js",
+  "/api/apply-drafts/route": "app/api/apply-drafts/route.js",
+  "/api/discard-drafts/route": "app/api/discard-drafts/route.js",
+  "/api/drafts/route": "app/api/drafts/route.js",
+  "/api/events/route": "app/api/events/route.js",
+  "/app/page": "app/app/page.js",
+  "/login/check-email/page": "app/login/check-email/page.js",
+  "/page": "app/page.js"
 }
