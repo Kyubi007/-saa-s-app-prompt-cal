@@ -27,6 +27,11 @@ export function AISidebar({ preferences, drafts, onDraftsUpdated, isActive, onSh
 
   const handleSubmit = async () => {
     if (!prompt.trim()) return
+
+		if (!isActive) {
+			onShowPaywall()
+			return
+		}
     setIsLoading(true)
 
     try {

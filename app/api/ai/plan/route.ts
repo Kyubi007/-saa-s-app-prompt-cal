@@ -22,7 +22,14 @@ export async function POST(request: Request) {
     const { data: subscription } = await supabase.from("subscriptions").select("*").eq("user_id", user.id).single()
 
     const now = new Date()
-    const isActive = true
+    const isTrialing =
+      subscription?.status === "trialing" ||
+      (subscription?.trial_end ? new Date(subscription.trial_end) > now : false)
+    const isActive = subscription?.status === "active" || isTrialing
+
+		if (!isActive) {
+			return NextResponse.json({ error: "Kein aktives Abonnement" }, { status: 403 })
+		}
 
     const { prompt, timezone = "Europe/Berlin" } = await request.json()
 

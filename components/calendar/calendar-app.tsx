@@ -32,7 +32,7 @@ export function CalendarApp({ user, preferences, subscription, isActive }: Calen
   const [editingEvent, setEditingEvent] = useState<Event | null>(null)
   const [isEventModalOpen, setIsEventModalOpen] = useState(false)
   const [isCommandBarOpen, setIsCommandBarOpen] = useState(false)
-  const [showPaywall, setShowPaywall] = useState(false)
+  const [showPaywall, setShowPaywall] = useState(!isActive)
 
   const supabase = createClient()
 
@@ -79,18 +79,28 @@ export function CalendarApp({ user, preferences, subscription, isActive }: Calen
   // Event handlers
   const handleCreateEvent = useCallback(
     (date: Date) => {
+      if (!isActive) {
+        setShowPaywall(true)
+        return
+      }
+
       setSelectedDate(date)
       setEditingEvent(null)
       setIsEventModalOpen(true)
     },
-    [],
+    [isActive],
   )
 
   const handleEditEvent = useCallback((event: Event) => {
+    if (!isActive) {
+      setShowPaywall(true)
+      return
+    }
+
     setEditingEvent(event)
     setSelectedDate(null)
     setIsEventModalOpen(true)
-  }, [])
+  }, [isActive])
 
   const handleEventSaved = useCallback(() => {
     mutateEvents()
@@ -107,6 +117,11 @@ export function CalendarApp({ user, preferences, subscription, isActive }: Calen
   // Drag and drop event update
   const handleEventDrop = useCallback(
     async (eventId: string, newStart: Date) => {
+      if (!isActive) {
+        setShowPaywall(true)
+        return
+      }
+
       try {
         const res = await fetch(`/api/events/${eventId}`, {
           method: "PATCH",
@@ -120,12 +135,17 @@ export function CalendarApp({ user, preferences, subscription, isActive }: Calen
         console.error("Error updating event:", error)
       }
     },
-    [mutateEvents],
+    [isActive, mutateEvents],
   )
 
   // Resize event
   const handleEventResize = useCallback(
     async (eventId: string, newDuration: number) => {
+      if (!isActive) {
+        setShowPaywall(true)
+        return
+      }
+
       try {
         const res = await fetch(`/api/events/${eventId}`, {
           method: "PATCH",
@@ -139,11 +159,11 @@ export function CalendarApp({ user, preferences, subscription, isActive }: Calen
         console.error("Error resizing event:", error)
       }
     },
-    [mutateEvents],
+    [isActive, mutateEvents],
   )
 
   const handleShowPaywall = useCallback(() => {
-    return
+    setShowPaywall(true)
   }, [])
 
   return (
