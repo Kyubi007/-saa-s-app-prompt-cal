@@ -79,7 +79,7 @@ export function AuthForm() {
       <CardHeader className="space-y-1 text-center">
         <CardTitle className="text-2xl">{mode === "login" ? "Willkommen zurück" : "Account erstellen"}</CardTitle>
         <CardDescription>
-          {mode === "login" ? "Melde dich an, um fortzufahren" : "Starte jetzt mit 1 Monat kostenlos"}
+          {mode === "login" ? "Melde dich an, um fortzufahren" : "Starte jetzt mit 14 Tagen kostenlos"}
         </CardDescription>
       </CardHeader>
       <CardContent>

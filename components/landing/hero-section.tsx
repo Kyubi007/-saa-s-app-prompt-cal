@@ -24,7 +24,7 @@ export function HeroSection() {
             className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-secondary/50 px-4 py-1.5 text-sm text-muted-foreground"
           >
             <Sparkles className="h-3.5 w-3.5 text-primary" />
-            <span>1 Monat kostenlos testen</span>
+            <span>14 Tage kostenlos testen</span>
           </motion.div>
 
           {/* Headline */}

@@ -2,12 +2,13 @@
 
 import { useState, useCallback, useEffect } from "react"
 import useSWR from "swr"
-import { startOfWeek, endOfWeek, addWeeks, subWeeks } from "date-fns"
+import { startOfWeek, endOfWeek, addWeeks, subWeeks, startOfMonth, endOfMonth, addMonths, subMonths } from "date-fns"
 import type { User } from "@supabase/supabase-js"
 import type { Preferences, Subscription, Event, EventDraft } from "@/lib/types/database"
 import { createClient } from "@/lib/supabase/client"
 import { AppHeader } from "./app-header"
 import { CalendarView } from "./calendar-view"
+import { MonthView } from "./month-view"
 import { AISidebar } from "./ai-sidebar"
 import { EventModal } from "./event-modal"
 import { CommandBar } from "./command-bar"
@@ -33,16 +34,22 @@ export function CalendarApp({ user, preferences, subscription, isActive }: Calen
   const [isEventModalOpen, setIsEventModalOpen] = useState(false)
   const [isCommandBarOpen, setIsCommandBarOpen] = useState(false)
   const [showPaywall, setShowPaywall] = useState(!isActive)
+  const [viewMode, setViewMode] = useState<"day" | "week" | "month">("week")
 
   const supabase = createClient()
 
-  // Calculate week bounds
+  // Calculate date ranges for data fetching
   const weekStart = startOfWeek(currentDate, { weekStartsOn: 1 })
   const weekEnd = endOfWeek(currentDate, { weekStartsOn: 1 })
+  const monthStart = startOfMonth(currentDate)
+  const monthEnd = endOfMonth(currentDate)
 
-  // Fetch events for current week
+  const rangeStart = viewMode === "month" ? monthStart : weekStart
+  const rangeEnd = viewMode === "month" ? monthEnd : weekEnd
+
+  // Fetch events for the visible range
   const { data: events, mutate: mutateEvents } = useSWR<Event[]>(
-    `/api/events?start=${weekStart.toISOString()}&end=${weekEnd.toISOString()}`,
+    `/api/events?start=${rangeStart.toISOString()}&end=${rangeEnd.toISOString()}`,
     fetcher,
     { refreshInterval: 30000 },
   )
@@ -64,13 +71,26 @@ export function CalendarApp({ user, preferences, subscription, isActive }: Calen
   }, [])
 
   // Navigation
-  const goToPreviousWeek = useCallback(() => {
-    setCurrentDate((d) => subWeeks(d, 1))
-  }, [])
+  const goToPrevious = useCallback(() => {
+    setCurrentDate((d) => {
+      if (viewMode === "day") {
+        return new Date(d.getTime() - 24 * 60 * 60 * 1000)
+      }
+      if (viewMode === "month") {
+        return subMonths(d, 1)
+      }
+      // week view
+      return subWeeks(d, 1)
+    })
+  }, [viewMode])
 
-  const goToNextWeek = useCallback(() => {
-    setCurrentDate((d) => addWeeks(d, 1))
-  }, [])
+  const goToNext = useCallback(() => {
+    setCurrentDate((d) => {
+      if (viewMode === "day") return new Date(d.getTime() + 24 * 60 * 60 * 1000)
+      if (viewMode === "month") return addMonths(d, 1)
+      return addWeeks(d, 1)
+    })
+  }, [viewMode])
 
   const goToToday = useCallback(() => {
     setCurrentDate(new Date())
@@ -172,25 +192,39 @@ export function CalendarApp({ user, preferences, subscription, isActive }: Calen
         user={user}
         currentDate={currentDate}
         subscription={subscription}
-        onPreviousWeek={goToPreviousWeek}
-        onNextWeek={goToNextWeek}
+        onPreviousWeek={goToPrevious}
+        onNextWeek={goToNext}
         onToday={goToToday}
         onOpenCommandBar={() => setIsCommandBarOpen(true)}
+        viewMode={viewMode}
+        onViewModeChange={setViewMode}
       />
 
       <div className="flex flex-1 overflow-hidden">
         {/* Calendar */}
         <div className="flex-1 overflow-hidden">
-          <CalendarView
-            currentDate={currentDate}
-            events={events || []}
-            drafts={drafts || []}
-            preferences={preferences}
-            onCreateEvent={handleCreateEvent}
-            onEditEvent={handleEditEvent}
-            onEventDrop={handleEventDrop}
-            onEventResize={handleEventResize}
-          />
+          {viewMode === "month" ? (
+            <MonthView
+              currentDate={currentDate}
+              events={events || []}
+              onDateSelect={(date) => {
+                setCurrentDate(date)
+                setViewMode("day")
+              }}
+            />
+          ) : (
+            <CalendarView
+              currentDate={currentDate}
+              events={events || []}
+              drafts={drafts || []}
+              preferences={preferences}
+              onCreateEvent={handleCreateEvent}
+              onEditEvent={handleEditEvent}
+              onEventDrop={handleEventDrop}
+              onEventResize={handleEventResize}
+              viewMode={viewMode === "day" ? "day" : "week"}
+            />
+          )}
         </div>
 
         {/* AI Sidebar */}

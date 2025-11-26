@@ -16,6 +16,7 @@ interface CalendarViewProps {
   onEditEvent: (event: Event) => void
   onEventDrop: (eventId: string, newStart: Date) => void
   onEventResize: (eventId: string, newDuration: number) => void
+  viewMode: "day" | "week"
 }
 
 const HOUR_HEIGHT = 60
@@ -31,13 +32,18 @@ export function CalendarView({
   onEditEvent,
   onEventDrop,
   onEventResize,
+  viewMode,
 }: CalendarViewProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const weekStart = startOfWeek(currentDate, { weekStartsOn: 1 })
 
   const days = useMemo(() => {
+    if (viewMode === "day") {
+      return [currentDate]
+    }
+
     return Array.from({ length: 7 }, (_, i) => addDays(weekStart, i))
-  }, [weekStart])
+  }, [currentDate, viewMode, weekStart])
 
   const hours = useMemo(() => {
     return Array.from({ length: END_HOUR - START_HOUR }, (_, i) => START_HOUR + i)
@@ -138,6 +144,9 @@ export function CalendarView({
               key={day.toISOString()}
               className={cn("relative flex-1 border-r border-border", isToday(day) && "bg-primary/5")}
             >
+              {/* Full-height vertical divider to ensure line reaches bottom */}
+              <div className="pointer-events-none absolute inset-y-0 right-0 w-px bg-border/50" />
+
               {/* Hour slots */}
               {hours.map((hour) => (
                 <div

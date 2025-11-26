@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { createClient } from "@/lib/supabase/client"
+import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { Calendar, ChevronLeft, ChevronRight, Command, LogOut, Settings, CreditCard } from "lucide-react"
 
@@ -27,6 +28,8 @@ interface AppHeaderProps {
   onNextWeek: () => void
   onToday: () => void
   onOpenCommandBar: () => void
+  viewMode: "day" | "week" | "month"
+  onViewModeChange: (mode: "day" | "week" | "month") => void
 }
 
 export function AppHeader({
@@ -37,6 +40,8 @@ export function AppHeader({
   onNextWeek,
   onToday,
   onOpenCommandBar,
+  viewMode,
+  onViewModeChange,
 }: AppHeaderProps) {
   const router = useRouter()
   const supabase = createClient()
@@ -63,12 +68,12 @@ export function AppHeader({
     <header className="flex h-16 shrink-0 items-center justify-between border-b border-border bg-card px-4">
       {/* Left: Logo + Navigation */}
       <div className="flex items-center gap-6">
-        <div className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
             <Calendar className="h-4 w-4 text-primary-foreground" />
           </div>
           <span className="text-lg font-semibold tracking-tight">AI Prompt Planer</span>
-        </div>
+        </Link>
 
         <div className="flex items-center gap-2">
           <Button variant="ghost" size="icon" onClick={onPreviousWeek}>
@@ -83,7 +88,40 @@ export function AppHeader({
             <ChevronRight className="h-4 w-4" />
           </Button>
 
-          <span className="ml-2 text-sm font-medium">{format(currentDate, "MMMM yyyy", { locale: de })}</span>
+          <button
+            type="button"
+            onClick={() => onViewModeChange("month")}
+            className="ml-2 text-sm font-medium text-foreground hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60 rounded-sm"
+          >
+            {format(currentDate, "MMMM yyyy", { locale: de })}
+          </button>
+        </div>
+
+        <div className="hidden items-center gap-1 md:flex">
+          <Button
+            variant={viewMode === "day" ? "default" : "ghost"}
+            size="sm"
+            className="px-2 py-1 text-xs"
+            onClick={() => onViewModeChange("day")}
+          >
+            Tag
+          </Button>
+          <Button
+            variant={viewMode === "week" ? "default" : "ghost"}
+            size="sm"
+            className="px-2 py-1 text-xs"
+            onClick={() => onViewModeChange("week")}
+          >
+            Woche
+          </Button>
+          <Button
+            variant={viewMode === "month" ? "default" : "ghost"}
+            size="sm"
+            className="px-2 py-1 text-xs"
+            onClick={() => onViewModeChange("month")}
+          >
+            Monat
+          </Button>
         </div>
       </div>
 

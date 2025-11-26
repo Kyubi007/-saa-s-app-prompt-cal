@@ -33,7 +33,7 @@ const plans = [
   },
 ]
 
-const allFeatures = ["1 Monat kostenlos testen", "Keine Kreditkarte zum Start", "Jederzeit kündbar", "DSGVO-konform"]
+const allFeatures = ["14 Tage kostenlos testen", "Keine Kreditkarte zum Start", "Jederzeit kündbar", "DSGVO-konform"]
 
 export function PricingSection() {
   return (
@@ -68,7 +68,7 @@ export function PricingSection() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mx-auto mt-12 max-w-lg rounded-xl border border-primary/20 bg-primary/5 p-6 text-center"
         >
-          <p className="text-2xl font-bold text-primary">1 Monat kostenlos</p>
+          <p className="text-2xl font-bold text-primary">14 Tage kostenlos</p>
           <p className="mt-2 text-muted-foreground">Teste alle Features ohne Risiko. Keine Kreditkarte erforderlich.</p>
         </motion.div>
 
