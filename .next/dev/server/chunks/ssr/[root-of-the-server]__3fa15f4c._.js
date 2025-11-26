@@ -138,6 +138,7 @@ async function createCheckoutSession(planId) {
         customerId = customer.id;
     }
     // Create checkout session with subscription mode
+    const baseUrl = ("TURBOPACK compile-time value", "https://aipromptplaner.com") || process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL || "http://localhost:3000";
     const session = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$stripe$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["stripe"].checkout.sessions.create({
         customer: customerId,
         mode: "subscription",
@@ -161,14 +162,14 @@ async function createCheckoutSession(planId) {
             }
         ],
         subscription_data: {
-            trial_period_days: 30,
+            trial_period_days: 14,
             metadata: {
                 supabase_user_id: user.id,
                 plan_id: planId
             }
         },
-        success_url: `${process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL || "http://localhost:3000"}/app?checkout=success`,
-        cancel_url: `${process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL || "http://localhost:3000"}/pricing?checkout=cancelled`,
+        success_url: `${baseUrl}/app?checkout=success`,
+        cancel_url: `${baseUrl}/pricing?checkout=cancelled`,
         metadata: {
             supabase_user_id: user.id,
             plan_id: planId
@@ -191,7 +192,7 @@ async function createCustomerPortalSession() {
     }
     const session = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$stripe$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["stripe"].billingPortal.sessions.create({
         customer: subscription.stripe_customer_id,
-        return_url: `${process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL || "http://localhost:3000"}/app/settings`
+        return_url: `${("TURBOPACK compile-time value", "https://aipromptplaner.com") || process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL || "http://localhost:3000"}/app/settings`
     });
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$components$2f$navigation$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["redirect"])(session.url);
 }

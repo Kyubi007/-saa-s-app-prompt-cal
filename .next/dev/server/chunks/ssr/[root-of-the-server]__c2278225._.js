@@ -169,19 +169,16 @@ const metadata = {
     icons: {
         icon: [
             {
-                url: "/icon-light-32x32.png",
-                media: "(prefers-color-scheme: light)"
+                url: "/favicon_io/favicon-32x32.png"
             },
             {
-                url: "/icon-dark-32x32.png",
-                media: "(prefers-color-scheme: dark)"
+                url: "/favicon_io/favicon-16x16.png"
             },
             {
-                url: "/icon.svg",
-                type: "image/svg+xml"
+                url: "/favicon_io/favicon.ico"
             }
         ],
-        apple: "/apple-icon.png"
+        apple: "/favicon_io/apple-touch-icon.png"
     },
     openGraph: {
         title: "AI Prompt Planer - Dein KI-Kalender",

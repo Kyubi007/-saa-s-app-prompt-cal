@@ -565,7 +565,7 @@ function HeroSection() {
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        children: "1 Monat kostenlos testen"
+                                        children: "14 Tage kostenlos testen"
                                     }, void 0, false, {
                                         fileName: "[project]/components/landing/hero-section.tsx",
                                         lineNumber: 27,
@@ -1007,7 +1007,7 @@ const plans = [
     }
 ];
 const allFeatures = [
-    "1 Monat kostenlos testen",
+    "14 Tage kostenlos testen",
     "Keine Kreditkarte zum Start",
     "Jederzeit kündbar",
     "DSGVO-konform"
@@ -1093,7 +1093,7 @@ function PricingSection() {
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                             className: "text-2xl font-bold text-primary",
-                            children: "1 Monat kostenlos"
+                            children: "14 Tage kostenlos"
                         }, void 0, false, {
                             fileName: "[project]/components/landing/pricing-section.tsx",
                             lineNumber: 71,

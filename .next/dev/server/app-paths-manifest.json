@@ -1,4 +1,8 @@
 {
+  "/api/drafts/route": "app/api/drafts/route.js",
+  "/api/events/route": "app/api/events/route.js",
+  "/app/page": "app/app/page.js",
+  "/login/page": "app/login/page.js",
   "/page": "app/page.js",
   "/pricing/page": "app/pricing/page.js"
 }

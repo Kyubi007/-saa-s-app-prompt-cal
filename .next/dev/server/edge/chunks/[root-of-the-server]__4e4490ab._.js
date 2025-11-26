@@ -44,11 +44,13 @@ async function updateSession(request) {
     });
     const { data: { user } } = await supabase.auth.getUser();
     // Public routes that don't require authentication
+    // Wichtig: Stripe-Webhook darf nicht umgeleitet werden, sonst schlägt die Webhook-Zustellung fehl.
     const publicRoutes = [
         "/",
         "/login",
         "/auth",
         "/api/webhooks",
+        "/api/stripe/webhook",
         "/pricing"
     ];
     const isPublicRoute = publicRoutes.some((route)=>request.nextUrl.pathname === route || request.nextUrl.pathname.startsWith(`${route}/`));
