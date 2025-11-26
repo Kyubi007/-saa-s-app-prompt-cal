@@ -40,6 +40,9 @@ export async function createCheckoutSession(planId: PlanId) {
   }
 
   // Create checkout session with subscription mode
+  const baseUrl =
+    process.env.NEXT_PUBLIC_APP_URL || process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL || "http://localhost:3000"
+
   const session = await stripe.checkout.sessions.create({
     customer: customerId,
     mode: "subscription",
@@ -67,8 +70,8 @@ export async function createCheckoutSession(planId: PlanId) {
         plan_id: planId,
       },
     },
-    success_url: `${process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL || "http://localhost:3000"}/app?checkout=success`,
-    cancel_url: `${process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL || "http://localhost:3000"}/pricing?checkout=cancelled`,
+    success_url: `${baseUrl}/app?checkout=success`,
+    cancel_url: `${baseUrl}/pricing?checkout=cancelled`,
     metadata: {
       supabase_user_id: user.id,
       plan_id: planId,
@@ -104,7 +107,9 @@ export async function createCustomerPortalSession() {
 
   const session = await stripe.billingPortal.sessions.create({
     customer: subscription.stripe_customer_id,
-    return_url: `${process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL || "http://localhost:3000"}/app/settings`,
+    return_url: `${
+      process.env.NEXT_PUBLIC_APP_URL || process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL || "http://localhost:3000"
+    }/app/settings`,
   })
 
   redirect(session.url)
