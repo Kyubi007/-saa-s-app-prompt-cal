@@ -7,7 +7,7 @@ const faqs = [
   {
     question: "Wie funktioniert der kostenlose Testmonat?",
     answer:
-      "Du kannst PromptCal 30 Tage lang kostenlos und unverbindlich testen. Es ist keine Kreditkarte erforderlich. Nach Ablauf der Testphase kannst du dich für ein Abo entscheiden oder dein Konto einfach ruhen lassen.",
+      "Du kannst AI Prompt Planer 30 Tage lang kostenlos und unverbindlich testen. Es ist keine Kreditkarte erforderlich. Nach Ablauf der Testphase kannst du dich für ein Abo entscheiden oder dein Konto einfach ruhen lassen.",
   },
   {
     question: "Kann ich jederzeit kündigen?",
@@ -27,7 +27,7 @@ const faqs = [
   {
     question: "Kann ich auch ohne KI planen?",
     answer:
-      "Absolut! PromptCal ist ein vollwertiger Kalender. Du kannst Events jederzeit manuell erstellen, per Drag & Drop verschieben, die Dauer ändern und alle Details bearbeiten.",
+      "Absolut! AI Prompt Planer ist ein vollwertiger Kalender. Du kannst Events jederzeit manuell erstellen, per Drag & Drop verschieben, die Dauer ändern und alle Details bearbeiten.",
   },
   {
     question: "Welche Zahlungsmethoden werden akzeptiert?",

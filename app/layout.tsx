@@ -10,12 +10,12 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "PromptCal - Dein KI-Kalender",
+  title: "AI Prompt Planer - Dein KI-Kalender",
   description:
     "Schreib deinen Tag, der Kalender plant sich selbst. KI-gestützte Kalenderplanung für produktive Menschen.",
   generator: "v0.app",
-  keywords: ["Kalender", "KI", "Planung", "Produktivität", "AI Calendar"],
-  authors: [{ name: "PromptCal" }],
+  keywords: ["Kalender", "KI", "Planung", "Produktivität", "AI Calendar", "AI Prompt Planer"],
+  authors: [{ name: "AI Prompt Planer" }],
   icons: {
     icon: [
       { url: "/icon-light-32x32.png", media: "(prefers-color-scheme: light)" },
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     apple: "/apple-icon.png",
   },
   openGraph: {
-    title: "PromptCal - Dein KI-Kalender",
+    title: "AI Prompt Planer - Dein KI-Kalender",
     description: "Schreib deinen Tag, der Kalender plant sich selbst.",
     type: "website",
   },

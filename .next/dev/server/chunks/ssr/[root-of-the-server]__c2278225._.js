@@ -150,7 +150,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$theme$2d$provi
 ;
 ;
 const metadata = {
-    title: "PromptCal - Dein KI-Kalender",
+    title: "AI Prompt Planer - Dein KI-Kalender",
     description: "Schreib deinen Tag, der Kalender plant sich selbst. KI-gestützte Kalenderplanung für produktive Menschen.",
     generator: "v0.app",
     keywords: [
@@ -158,11 +158,12 @@ const metadata = {
         "KI",
         "Planung",
         "Produktivität",
-        "AI Calendar"
+        "AI Calendar",
+        "AI Prompt Planer"
     ],
     authors: [
         {
-            name: "PromptCal"
+            name: "AI Prompt Planer"
         }
     ],
     icons: {
@@ -183,7 +184,7 @@ const metadata = {
         apple: "/apple-icon.png"
     },
     openGraph: {
-        title: "PromptCal - Dein KI-Kalender",
+        title: "AI Prompt Planer - Dein KI-Kalender",
         description: "Schreib deinen Tag, der Kalender plant sich selbst.",
         type: "website"
     }

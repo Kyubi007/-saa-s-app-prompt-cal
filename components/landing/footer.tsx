@@ -10,7 +10,7 @@ export function Footer() {
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
               <Calendar className="h-4 w-4 text-primary-foreground" />
             </div>
-            <span className="text-lg font-semibold">PromptCal</span>
+            <span className="text-lg font-semibold">AI Prompt Planer</span>
           </div>
 
           <nav className="flex flex-wrap items-center justify-center gap-6">
@@ -31,7 +31,7 @@ export function Footer() {
             </Link>
           </nav>
 
-          <p className="text-sm text-muted-foreground">© 2025 PromptCal. Alle Rechte vorbehalten.</p>
+          <p className="text-sm text-muted-foreground"> 2025 AI Prompt Planer. Alle Rechte vorbehalten.</p>
         </div>
       </div>
     </footer>

@@ -18,7 +18,7 @@ export default function LandingPage() {
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
               <Calendar className="h-4 w-4 text-primary-foreground" />
             </div>
-            <span className="text-xl font-semibold tracking-tight">PromptCal</span>
+            <span className="text-xl font-semibold tracking-tight">AI Prompt Planer</span>
           </Link>
 
           <div className="hidden items-center gap-6 md:flex">

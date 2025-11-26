@@ -48,7 +48,8 @@ async function updateSession(request) {
         "/",
         "/login",
         "/auth",
-        "/api/webhooks"
+        "/api/webhooks",
+        "/pricing"
     ];
     const isPublicRoute = publicRoutes.some((route)=>request.nextUrl.pathname === route || request.nextUrl.pathname.startsWith(`${route}/`));
     // Redirect unauthenticated users to login (except public routes)
@@ -62,6 +63,18 @@ async function updateSession(request) {
         const url = request.nextUrl.clone();
         url.pathname = "/app";
         return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$exports$2f$index$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["NextResponse"].redirect(url);
+    }
+    // Subscription gating for app routes
+    if (user && request.nextUrl.pathname.startsWith("/app")) {
+        const { data: subscription } = await supabase.from("subscriptions").select("status, trial_end").eq("user_id", user.id).single();
+        const now = new Date();
+        const isTrialing = subscription?.status === "trialing" || (subscription?.trial_end ? new Date(subscription.trial_end) > now : false);
+        const isActive = subscription?.status === "active" || isTrialing;
+        if (!isActive) {
+            const url = request.nextUrl.clone();
+            url.pathname = "/pricing";
+            return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$exports$2f$index$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["NextResponse"].redirect(url);
+        }
     }
     return supabaseResponse;
 }
