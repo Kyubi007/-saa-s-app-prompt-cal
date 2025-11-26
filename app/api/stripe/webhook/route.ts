@@ -89,11 +89,11 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
         stripe_customer_id: session.customer as string,
         stripe_subscription_id: subscription.id,
         status: subscription.status,
-        plan_id: planId || "monthly",
-        trial_start: subscription.trial_start ? new Date(subscription.trial_start * 1000).toISOString() : null,
+        plan: (planId as "monthly" | "yearly") || "monthly",
         trial_end: subscription.trial_end ? new Date(subscription.trial_end * 1000).toISOString() : null,
-        current_period_start: new Date(subscription.current_period_start * 1000).toISOString(),
-        current_period_end: new Date(subscription.current_period_end * 1000).toISOString(),
+        current_period_end: subscription.current_period_end
+          ? new Date(subscription.current_period_end * 1000).toISOString()
+          : null,
       },
       {
         onConflict: "user_id",
@@ -131,9 +131,9 @@ async function handleSubscriptionUpdate(subscription: Stripe.Subscription) {
       .update({
         status: subscription.status,
         trial_end: subscription.trial_end ? new Date(subscription.trial_end * 1000).toISOString() : null,
-        current_period_start: new Date(subscription.current_period_start * 1000).toISOString(),
-        current_period_end: new Date(subscription.current_period_end * 1000).toISOString(),
-        cancel_at_period_end: subscription.cancel_at_period_end,
+        current_period_end: subscription.current_period_end
+          ? new Date(subscription.current_period_end * 1000).toISOString()
+          : null,
       })
       .eq("stripe_subscription_id", subscription.id)
   }
