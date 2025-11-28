@@ -39,8 +39,8 @@ export async function updateSession(request: NextRequest) {
     return NextResponse.redirect(url)
   }
 
-  // Redirect authenticated users from login to app
-  if (user && request.nextUrl.pathname === "/login") {
+  // Redirect authenticated users from login or landing page to app
+  if (user && (request.nextUrl.pathname === "/login" || request.nextUrl.pathname === "/")) {
     const url = request.nextUrl.clone()
     url.pathname = "/app"
     return NextResponse.redirect(url)
