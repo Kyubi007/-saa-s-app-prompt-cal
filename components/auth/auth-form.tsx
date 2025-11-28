@@ -30,9 +30,8 @@ export function AuthForm() {
 		setIsOAuthLoading(true)
 
 		try {
-			const redirectTo =
-				process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL ||
-				`${window.location.origin}/pricing/trial`
+			const baseUrl = window.location.origin
+			const redirectTo = `${baseUrl}/auth/callback?next=/pricing/trial`
 
 			const { error } = await supabase.auth.signInWithOAuth({
 				provider: "google",
