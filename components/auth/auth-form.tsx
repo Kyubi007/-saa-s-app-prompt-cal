@@ -31,7 +31,8 @@ export function AuthForm() {
 
 		try {
 			const redirectTo =
-				process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL || `${window.location.origin}/app`
+				process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL ||
+				`${window.location.origin}/pricing/trial`
 
 			const { error } = await supabase.auth.signInWithOAuth({
 				provider: "google",
@@ -121,7 +122,7 @@ export function AuthForm() {
 				) : (
 					<Chrome className="h-4 w-4" />
 				)}
-				<span>Mit Google fortfahren</span>
+				<span>{mode === "login" ? "Mit Google anmelden" : "Mit Google registrieren"}</span>
 			</Button>
 
 			<div className="mb-4 flex items-center gap-3 text-xs text-muted-foreground">

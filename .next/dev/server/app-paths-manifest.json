@@ -1,9 +1,4 @@
 {
-  "/api/drafts/route": "app/api/drafts/route.js",
-  "/api/events/route": "app/api/events/route.js",
-  "/api/stripe/portal/route": "app/api/stripe/portal/route.js",
-  "/app/page": "app/app/page.js",
-  "/login/check-email/page": "app/login/check-email/page.js",
   "/login/page": "app/login/page.js",
   "/page": "app/page.js"
 }

@@ -47,18 +47,25 @@ export async function updateSession(request: NextRequest) {
   }
 
   // Subscription gating for app routes
+  // Wichtig: Wenn noch keine Subscription existiert, erlauben wir den Zugriff auf /app,
+  // damit die 6-tägige Testphase in den Server Actions angelegt werden kann.
   if (user && request.nextUrl.pathname.startsWith("/app")) {
-    const { data: subscription } = await supabase
+    const { data: subscription, error } = await supabase
       .from("subscriptions")
       .select("status, trial_end")
       .eq("user_id", user.id)
-      .single()
+      .maybeSingle()
+
+    // Kein Eintrag gefunden -> Nutzer darf /app öffnen, Trial wird später angelegt
+    if (!subscription || error) {
+      return supabaseResponse
+    }
 
     const now = new Date()
     const isTrialing =
-      subscription?.status === "trialing" ||
-      (subscription?.trial_end ? new Date(subscription.trial_end) > now : false)
-    const isActive = subscription?.status === "active" || isTrialing
+      subscription.status === "trialing" ||
+      (subscription.trial_end ? new Date(subscription.trial_end) > now : false)
+    const isActive = subscription.status === "active" || isTrialing
 
     if (!isActive) {
       const url = request.nextUrl.clone()

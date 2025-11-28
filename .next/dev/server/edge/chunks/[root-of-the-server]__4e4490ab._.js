@@ -67,11 +67,17 @@ async function updateSession(request) {
         return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$exports$2f$index$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["NextResponse"].redirect(url);
     }
     // Subscription gating for app routes
+    // Wichtig: Wenn noch keine Subscription existiert, erlauben wir den Zugriff auf /app,
+    // damit die 6-tägige Testphase in den Server Actions angelegt werden kann.
     if (user && request.nextUrl.pathname.startsWith("/app")) {
-        const { data: subscription } = await supabase.from("subscriptions").select("status, trial_end").eq("user_id", user.id).single();
+        const { data: subscription, error } = await supabase.from("subscriptions").select("status, trial_end").eq("user_id", user.id).maybeSingle();
+        // Kein Eintrag gefunden -> Nutzer darf /app öffnen, Trial wird später angelegt
+        if (!subscription || error) {
+            return supabaseResponse;
+        }
         const now = new Date();
-        const isTrialing = subscription?.status === "trialing" || (subscription?.trial_end ? new Date(subscription.trial_end) > now : false);
-        const isActive = subscription?.status === "active" || isTrialing;
+        const isTrialing = subscription.status === "trialing" || (subscription.trial_end ? new Date(subscription.trial_end) > now : false);
+        const isActive = subscription.status === "active" || isTrialing;
         if (!isActive) {
             const url = request.nextUrl.clone();
             url.pathname = "/pricing";
