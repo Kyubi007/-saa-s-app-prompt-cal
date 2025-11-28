@@ -125,7 +125,26 @@ export async function getSubscriptionStatus() {
     return null
   }
 
-  const { data: subscription } = await supabase.from("subscriptions").select("*").eq("user_id", user.id).single()
+  // Try to load existing subscription
+  let { data: subscription } = await supabase.from("subscriptions").select("*").eq("user_id", user.id).maybeSingle()
+
+  // If no subscription exists yet, create a 6-day app-side trial without requiring Stripe
+  if (!subscription) {
+    const trialEnd = new Date(Date.now() + 6 * 24 * 60 * 60 * 1000).toISOString()
+    const { data: created } = await supabase
+      .from("subscriptions")
+      .insert({
+        user_id: user.id,
+        status: "trialing",
+        plan: "monthly",
+        trial_end: trialEnd,
+        current_period_end: trialEnd,
+      })
+      .select("*")
+      .single()
+
+    subscription = created || null
+  }
 
   if (!subscription) {
     return { status: "none", isActive: false }
@@ -142,6 +161,6 @@ export async function getSubscriptionStatus() {
     isTrialing,
     trialEnd: subscription.trial_end,
     currentPeriodEnd: subscription.current_period_end,
-    planId: subscription.plan_id,
+    planId: subscription.plan_id ?? subscription.plan,
   }
 }

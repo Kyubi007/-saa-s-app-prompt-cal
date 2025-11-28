@@ -33,7 +33,12 @@ const plans = [
   },
 ]
 
-const allFeatures = ["14 Tage kostenlos testen", "Keine Kreditkarte zum Start", "Jederzeit kündbar", "DSGVO-konform"]
+const allFeatures = [
+	"6 Tage kostenlos testen (ohne Kreditkarte)",
+	"14 Tage Trial beim Upgrade mit Karte",
+	"Jederzeit kündbar",
+	"DSGVO-konform",
+]
 
 export function PricingSection() {
   return (
@@ -68,8 +73,10 @@ export function PricingSection() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mx-auto mt-12 max-w-lg rounded-xl border border-primary/20 bg-primary/5 p-6 text-center"
         >
-          <p className="text-2xl font-bold text-primary">14 Tage kostenlos</p>
-          <p className="mt-2 text-muted-foreground">Teste alle Features ohne Risiko. Keine Kreditkarte erforderlich.</p>
+          <p className="text-2xl font-bold text-primary">6 Tage kostenlos testen</p>
+          <p className="mt-2 text-muted-foreground">
+            Starte ohne Kreditkarte. Beim Upgrade auf einen kostenpflichtigen Plan erhältst du zusätzlich 14 Tage Trial über Stripe.
+          </p>
         </motion.div>
 
         {/* Pricing Cards */}

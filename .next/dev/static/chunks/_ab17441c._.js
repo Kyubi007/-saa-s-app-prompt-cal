@@ -565,7 +565,7 @@ function HeroSection() {
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        children: "14 Tage kostenlos testen"
+                                        children: "6 Tage kostenlos testen · Keine Kreditkarte erforderlich"
                                     }, void 0, false, {
                                         fileName: "[project]/components/landing/hero-section.tsx",
                                         lineNumber: 27,
@@ -1007,8 +1007,8 @@ const plans = [
     }
 ];
 const allFeatures = [
-    "14 Tage kostenlos testen",
-    "Keine Kreditkarte zum Start",
+    "6 Tage kostenlos testen (ohne Kreditkarte)",
+    "14 Tage Trial beim Upgrade mit Karte",
     "Jederzeit kündbar",
     "DSGVO-konform"
 ];
@@ -1041,7 +1041,7 @@ function PricingSection() {
                             children: "Einfache, faire Preise"
                         }, void 0, false, {
                             fileName: "[project]/components/landing/pricing-section.tsx",
-                            lineNumber: 43,
+                            lineNumber: 48,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].p, {
@@ -1064,13 +1064,13 @@ function PricingSection() {
                             children: "Starte kostenlos. Entscheide später."
                         }, void 0, false, {
                             fileName: "[project]/components/landing/pricing-section.tsx",
-                            lineNumber: 52,
+                            lineNumber: 57,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/landing/pricing-section.tsx",
-                    lineNumber: 42,
+                    lineNumber: 47,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -1093,24 +1093,24 @@ function PricingSection() {
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                             className: "text-2xl font-bold text-primary",
-                            children: "14 Tage kostenlos"
+                            children: "6 Tage kostenlos testen"
                         }, void 0, false, {
                             fileName: "[project]/components/landing/pricing-section.tsx",
-                            lineNumber: 71,
+                            lineNumber: 76,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                             className: "mt-2 text-muted-foreground",
-                            children: "Teste alle Features ohne Risiko. Keine Kreditkarte erforderlich."
+                            children: "Starte ohne Kreditkarte. Beim Upgrade auf einen kostenpflichtigen Plan erhältst du zusätzlich 14 Tage Trial über Stripe."
                         }, void 0, false, {
                             fileName: "[project]/components/landing/pricing-section.tsx",
-                            lineNumber: 72,
+                            lineNumber: 77,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/landing/pricing-section.tsx",
-                    lineNumber: 64,
+                    lineNumber: 69,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1140,12 +1140,12 @@ function PricingSection() {
                                         children: plan.badge
                                     }, void 0, false, {
                                         fileName: "[project]/components/landing/pricing-section.tsx",
-                                        lineNumber: 90,
+                                        lineNumber: 97,
                                         columnNumber: 19
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/landing/pricing-section.tsx",
-                                    lineNumber: 89,
+                                    lineNumber: 96,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1156,7 +1156,7 @@ function PricingSection() {
                                             children: plan.name
                                         }, void 0, false, {
                                             fileName: "[project]/components/landing/pricing-section.tsx",
-                                            lineNumber: 97,
+                                            lineNumber: 104,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1164,13 +1164,13 @@ function PricingSection() {
                                             children: plan.description
                                         }, void 0, false, {
                                             fileName: "[project]/components/landing/pricing-section.tsx",
-                                            lineNumber: 98,
+                                            lineNumber: 105,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/landing/pricing-section.tsx",
-                                    lineNumber: 96,
+                                    lineNumber: 103,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1184,7 +1184,7 @@ function PricingSection() {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/landing/pricing-section.tsx",
-                                            lineNumber: 102,
+                                            lineNumber: 109,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1192,13 +1192,13 @@ function PricingSection() {
                                             children: plan.period
                                         }, void 0, false, {
                                             fileName: "[project]/components/landing/pricing-section.tsx",
-                                            lineNumber: 103,
+                                            lineNumber: 110,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/landing/pricing-section.tsx",
-                                    lineNumber: 101,
+                                    lineNumber: 108,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -1210,7 +1210,7 @@ function PricingSection() {
                                                     className: "h-4 w-4 shrink-0 text-primary"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/landing/pricing-section.tsx",
-                                                    lineNumber: 109,
+                                                    lineNumber: 116,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1218,18 +1218,18 @@ function PricingSection() {
                                                     children: feature
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/landing/pricing-section.tsx",
-                                                    lineNumber: 110,
+                                                    lineNumber: 117,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, feature, true, {
                                             fileName: "[project]/components/landing/pricing-section.tsx",
-                                            lineNumber: 108,
+                                            lineNumber: 115,
                                             columnNumber: 19
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/components/landing/pricing-section.tsx",
-                                    lineNumber: 106,
+                                    lineNumber: 113,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -1241,23 +1241,23 @@ function PricingSection() {
                                         children: plan.cta
                                     }, void 0, false, {
                                         fileName: "[project]/components/landing/pricing-section.tsx",
-                                        lineNumber: 116,
+                                        lineNumber: 123,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/landing/pricing-section.tsx",
-                                    lineNumber: 115,
+                                    lineNumber: 122,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, plan.name, true, {
                             fileName: "[project]/components/landing/pricing-section.tsx",
-                            lineNumber: 78,
+                            lineNumber: 85,
                             columnNumber: 13
                         }, this))
                 }, void 0, false, {
                     fileName: "[project]/components/landing/pricing-section.tsx",
-                    lineNumber: 76,
+                    lineNumber: 83,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -1283,7 +1283,7 @@ function PricingSection() {
                             children: "Alle Pläne beinhalten:"
                         }, void 0, false, {
                             fileName: "[project]/components/landing/pricing-section.tsx",
-                            lineNumber: 132,
+                            lineNumber: 139,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1295,7 +1295,7 @@ function PricingSection() {
                                             className: "h-4 w-4 text-primary"
                                         }, void 0, false, {
                                             fileName: "[project]/components/landing/pricing-section.tsx",
-                                            lineNumber: 136,
+                                            lineNumber: 143,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1303,35 +1303,35 @@ function PricingSection() {
                                             children: feature
                                         }, void 0, false, {
                                             fileName: "[project]/components/landing/pricing-section.tsx",
-                                            lineNumber: 137,
+                                            lineNumber: 144,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, feature, true, {
                                     fileName: "[project]/components/landing/pricing-section.tsx",
-                                    lineNumber: 135,
+                                    lineNumber: 142,
                                     columnNumber: 15
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/components/landing/pricing-section.tsx",
-                            lineNumber: 133,
+                            lineNumber: 140,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/landing/pricing-section.tsx",
-                    lineNumber: 125,
+                    lineNumber: 132,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/components/landing/pricing-section.tsx",
-            lineNumber: 41,
+            lineNumber: 46,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/components/landing/pricing-section.tsx",
-        lineNumber: 40,
+        lineNumber: 45,
         columnNumber: 5
     }, this);
 }

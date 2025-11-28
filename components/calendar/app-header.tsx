@@ -17,8 +17,9 @@ import {
 import { ThemeToggle } from "@/components/theme-toggle"
 import { createClient } from "@/lib/supabase/client"
 import Link from "next/link"
+import Image from "next/image"
 import { useRouter } from "next/navigation"
-import { Calendar, ChevronLeft, ChevronRight, Command, LogOut, Settings, CreditCard } from "lucide-react"
+import { ChevronLeft, ChevronRight, Command, LogOut, Settings, CreditCard } from "lucide-react"
 
 interface AppHeaderProps {
   user: User
@@ -69,8 +70,13 @@ export function AppHeader({
       {/* Left: Logo + Navigation */}
       <div className="flex items-center gap-6">
         <Link href="/" className="flex items-center gap-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
-            <Calendar className="h-4 w-4 text-primary-foreground" />
+          <div className="relative h-8 w-8 overflow-hidden rounded-lg bg-primary/10">
+            <Image
+              src="/favicon_io/favicon-32x32.png"
+              alt="AI Prompt Planer Logo"
+              fill
+              className="object-contain"
+            />
           </div>
           <span className="text-lg font-semibold tracking-tight">AI Prompt Planer</span>
         </Link>

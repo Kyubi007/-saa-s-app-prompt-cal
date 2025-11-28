@@ -11,7 +11,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { createClient } from "@/lib/supabase/client"
-import { Loader2, Mail, Lock, ArrowRight } from "lucide-react"
+import { Loader2, Mail, Lock, ArrowRight, Chrome } from "lucide-react"
 
 export function AuthForm() {
   const router = useRouter()
@@ -22,8 +22,33 @@ export function AuthForm() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [isLoading, setIsLoading] = useState(false)
+  const [isOAuthLoading, setIsOAuthLoading] = useState(false)
 
   const supabase = createClient()
+
+	const handleGoogleSignIn = async () => {
+		setIsOAuthLoading(true)
+
+		try {
+			const redirectTo =
+				process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL || `${window.location.origin}/app`
+
+			const { error } = await supabase.auth.signInWithOAuth({
+				provider: "google",
+				options: {
+					redirectTo,
+				},
+			})
+
+			if (error) {
+				toast.error(error.message || "Google-Anmeldung fehlgeschlagen")
+			}
+		} catch (error: any) {
+			toast.error(error.message || "Google-Anmeldung fehlgeschlagen")
+		} finally {
+			setIsOAuthLoading(false)
+		}
+	}
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -79,10 +104,32 @@ export function AuthForm() {
       <CardHeader className="space-y-1 text-center">
         <CardTitle className="text-2xl">{mode === "login" ? "Willkommen zurück" : "Account erstellen"}</CardTitle>
         <CardDescription>
-          {mode === "login" ? "Melde dich an, um fortzufahren" : "Starte jetzt mit 14 Tagen kostenlos"}
+          {mode === "login" ? "Melde dich an, um fortzufahren" : "Starte jetzt mit 6 Tagen kostenlos"}
         </CardDescription>
       </CardHeader>
       <CardContent>
+        {/* Social login */}
+			<Button
+				type="button"
+				variant="outline"
+				className="mb-4 w-full gap-2"
+				onClick={handleGoogleSignIn}
+				disabled={isOAuthLoading || isLoading}
+			>
+				{isOAuthLoading ? (
+					<Loader2 className="h-4 w-4 animate-spin" />
+				) : (
+					<Chrome className="h-4 w-4" />
+				)}
+				<span>Mit Google fortfahren</span>
+			</Button>
+
+			<div className="mb-4 flex items-center gap-3 text-xs text-muted-foreground">
+				<div className="h-px flex-1 bg-border" />
+				<span>oder mit E-Mail anmelden</span>
+				<div className="h-px flex-1 bg-border" />
+			</div>
+
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
             <Label htmlFor="email">E-Mail</Label>

@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Calendar } from "lucide-react"
+import Image from "next/image"
 
 export function Footer() {
   return (
@@ -7,8 +7,13 @@ export function Footer() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
           <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
-              <Calendar className="h-4 w-4 text-primary-foreground" />
+            <div className="relative h-8 w-8 overflow-hidden rounded-lg bg-primary/10">
+              <Image
+                src="/favicon_io/favicon-32x32.png"
+                alt="AI Prompt Planer Logo"
+                fill
+                className="object-contain"
+              />
             </div>
             <span className="text-lg font-semibold">AI Prompt Planer</span>
           </div>

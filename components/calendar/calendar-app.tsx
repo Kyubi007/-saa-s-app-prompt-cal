@@ -200,7 +200,7 @@ export function CalendarApp({ user, preferences, subscription, isActive }: Calen
         onViewModeChange={setViewMode}
       />
 
-      <div className="flex flex-1 overflow-hidden">
+      <div className="flex flex-1 flex-col overflow-hidden lg:flex-row">
         {/* Calendar */}
         <div className="flex-1 overflow-hidden">
           {viewMode === "month" ? (

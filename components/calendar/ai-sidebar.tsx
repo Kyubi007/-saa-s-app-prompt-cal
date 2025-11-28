@@ -115,7 +115,7 @@ export function AISidebar({ preferences, drafts, onDraftsUpdated, isActive, onSh
   }
 
   return (
-    <div className="flex w-80 shrink-0 flex-col border-l border-border bg-card">
+    <div className="flex w-full shrink-0 flex-col border-t border-border bg-card md:border-t-0 md:border-l md:w-80">
       {/* Header */}
       <div className="flex items-center gap-2 border-b border-border p-4">
         <Sparkles className="h-5 w-5 text-primary" />

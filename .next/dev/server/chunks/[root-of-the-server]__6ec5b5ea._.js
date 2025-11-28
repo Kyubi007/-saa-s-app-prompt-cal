@@ -167,7 +167,7 @@ async function POST() {
                 status: 400
             });
         }
-        const returnUrl = `${("TURBOPACK compile-time value", "http://localhost:3000") || "http://localhost:3000"}/app/settings`;
+        const returnUrl = `${("TURBOPACK compile-time value", "https://aipromptplaner.com") || "http://localhost:3000"}/app/settings`;
         const session = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$stripe$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["stripe"].billingPortal.sessions.create({
             customer: subscription.stripe_customer_id,
             return_url: returnUrl

@@ -4,11 +4,12 @@
   "static/chunks/_6032a0b6._.js",
   "static/chunks/node_modules_date-fns_a3a53d10._.js",
   "static/chunks/node_modules_@supabase_realtime-js_dist_module_65527103._.js",
+  "static/chunks/node_modules_next_38c1d1ed._.js",
   "static/chunks/node_modules_@supabase_storage-js_dist_module_12b1c07c._.js",
   "static/chunks/node_modules_@supabase_auth-js_dist_module_e6c70351._.js",
   "static/chunks/node_modules_motion-dom_dist_es_da948acf._.js",
   "static/chunks/node_modules_framer-motion_dist_es_fdd5ade6._.js",
-  "static/chunks/node_modules_f46158bc._.js"
+  "static/chunks/node_modules_f64bf843._.js"
 ],
     source: "dynamic"
 });
