@@ -1,10 +1,8 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { Check, ArrowLeft, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { createClient } from "@/lib/supabase/server"
 import { PLANS } from "@/lib/stripe"
 import { CheckoutButton } from "@/components/checkout-button"
 
@@ -13,12 +11,7 @@ export const metadata: Metadata = {
   description: "Wähle deinen AI Prompt Planer Plan und starte mit 6 Tagen kostenloser Testphase.",
 }
 
-export default async function TrialPricingPage() {
-  const supabase = await createClient()
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
-
+export default function TrialPricingPage() {
   const features = [
     "Unbegrenzte KI-generierte Termine",
     "Natürlichsprachige Eingabe",
@@ -42,15 +35,13 @@ export default async function TrialPricingPage() {
           </Link>
 
           {/* Close to app / start trial */}
-          {user && (
-            <Link
-              href="/app"
-              className="inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
-            >
-              <span className="text-xs sm:text-sm">Zum Kalender (6 Tage kostenlos testen)</span>
-              <X className="h-4 w-4" />
-            </Link>
-          )}
+          <Link
+            href="/app"
+            className="inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
+          >
+            <span className="text-xs sm:text-sm">Zum Kalender (6 Tage kostenlos testen)</span>
+            <X className="h-4 w-4" />
+          </Link>
         </div>
       </header>
 
@@ -92,15 +83,9 @@ export default async function TrialPricingPage() {
               </ul>
             </CardContent>
             <CardFooter>
-              {user ? (
-                <CheckoutButton planId="monthly" className="w-full">
-                  14 Tage kostenlos testen (mit Karte)
-                </CheckoutButton>
-              ) : (
-                <Button asChild className="w-full">
-                  <Link href="/login?redirect=/pricing/trial">Jetzt starten</Link>
-                </Button>
-              )}
+              <CheckoutButton planId="monthly" className="w-full">
+                14 Tage kostenlos testen (mit Karte)
+              </CheckoutButton>
             </CardFooter>
           </Card>
 
@@ -126,15 +111,9 @@ export default async function TrialPricingPage() {
               </ul>
             </CardContent>
             <CardFooter>
-              {user ? (
-                <CheckoutButton planId="yearly" className="w-full">
-                  14 Tage kostenlos testen (mit Karte)
-                </CheckoutButton>
-              ) : (
-                <Button asChild className="w-full">
-                  <Link href="/login?redirect=/pricing/trial">Jetzt starten</Link>
-                </Button>
-              )}
+              <CheckoutButton planId="yearly" className="w-full">
+                14 Tage kostenlos testen (mit Karte)
+              </CheckoutButton>
             </CardFooter>
           </Card>
         </div>
