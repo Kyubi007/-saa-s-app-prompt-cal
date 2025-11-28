@@ -98,7 +98,8 @@ export const aiEventSchema = z.object({
   title: z.string().min(1).describe("Titel des Termins"),
   description: z.string().optional().describe("Optionale Beschreibung"),
   start_time: z.string().describe("ISO 8601 Startzeit mit Zeitzone"),
-  duration_min: z.number().int().positive().describe("Dauer in Minuten"),
+  // Darf 0 oder mehr sein; 0 wird später im Code auf eine sinnvolle Standarddauer gemappt.
+  duration_min: z.number().int().min(0).describe("Dauer in Minuten (0 oder mehr)"),
   category: z.enum(["work", "personal", "health", "social", "other"]).describe("Kategorie des Termins"),
   color: z
     .string()

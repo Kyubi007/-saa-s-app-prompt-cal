@@ -10,7 +10,7 @@ import { CheckoutButton } from "@/components/checkout-button"
 
 export const metadata: Metadata = {
   title: "Preise | PromptCal",
-  description: "Wähle deinen PromptCal Plan - 30 Tage kostenlos testen",
+  description: "Wähle deinen PromptCal Plan - starte mit 6 Tagen kostenlos, 14 Tage Trial beim Upgrade",
 }
 
 export default async function PricingPage() {
@@ -47,7 +47,8 @@ export default async function PricingPage() {
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold tracking-tight mb-4">Einfache, transparente Preise</h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Starte mit 30 Tagen kostenlosem Testen. Keine Kreditkarte erforderlich zum Start.
+            Starte mit 6 Tagen kostenlos direkt im Kalender, ohne Kreditkarte. Wenn du einen Plan
+            aktivierst, erhältst du zusätzlich 14 Tage Testphase über Stripe, bevor die erste Zahlung erfolgt.
           </p>
         </div>
 
@@ -75,7 +76,7 @@ export default async function PricingPage() {
             <CardFooter>
               {user ? (
                 <CheckoutButton planId="monthly" className="w-full">
-                  30 Tage kostenlos testen
+                  14 Tage kostenlos testen (mit Karte)
                 </CheckoutButton>
               ) : (
                 <Button asChild className="w-full">
@@ -109,7 +110,7 @@ export default async function PricingPage() {
             <CardFooter>
               {user ? (
                 <CheckoutButton planId="yearly" className="w-full">
-                  30 Tage kostenlos testen
+                  14 Tage kostenlos testen (mit Karte)
                 </CheckoutButton>
               ) : (
                 <Button asChild className="w-full">
@@ -121,9 +122,9 @@ export default async function PricingPage() {
         </div>
 
         <p className="text-center text-sm text-muted-foreground mt-8">
-          Nach der Testphase wird automatisch das gewählte Abo gestartet.
+          Nach der zusätzlichen 14-tägigen Stripe-Testphase wird automatisch das gewählte Abo gestartet.
           <br />
-          Jederzeit vor Ablauf kündbar.
+          Dein 6-Tage-App-Trial läuft davon unabhängig und ist jederzeit vor Ablauf kündbar.
         </p>
       </main>
     </div>

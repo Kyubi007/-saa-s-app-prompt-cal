@@ -65,6 +65,9 @@ export function AppHeader({
     ? Math.max(0, Math.ceil((new Date(subscription.trial_end).getTime() - Date.now()) / (1000 * 60 * 60 * 24)))
     : 0
 
+  const isTrialing = subscription?.status === "trialing" && trialDaysLeft > 0
+  const isTrialEndingSoon = isTrialing && trialDaysLeft <= 2
+
   return (
     <header className="flex h-16 shrink-0 items-center justify-between border-b border-border bg-card px-4">
       {/* Left: Logo + Navigation */}
@@ -134,10 +137,22 @@ export function AppHeader({
       {/* Right: Actions */}
       <div className="flex items-center gap-3">
         {/* Trial indicator */}
-        {subscription?.status === "trialing" && trialDaysLeft > 0 && (
+        {isTrialing && (
           <div className="hidden rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary md:block">
             {trialDaysLeft} Tage Trial übrig
           </div>
+        )}
+
+        {/* Trial expiry notice */}
+        {isTrialEndingSoon && (
+          <Link
+            href="/pricing"
+            className="hidden items-center gap-2 rounded-full border border-amber-300/60 bg-amber-50 px-3 py-1 text-xs font-medium text-amber-800 shadow-sm transition-colors hover:bg-amber-100 md:inline-flex dark:border-amber-400/50 dark:bg-amber-950/40 dark:text-amber-200 dark:hover:bg-amber-900/60"
+          >
+            <span>
+              Trial endet bald ({trialDaysLeft} Tag{trialDaysLeft === 1 ? "" : "e"}) – jetzt Abo sichern
+            </span>
+          </Link>
         )}
 
         {/* Quick Add */}
